@@ -5,8 +5,6 @@
              
              Title="EditarMedicamento">
     <VerticalStackLayout>
-        <Label 
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label />
     </VerticalStackLayout>
 </ContentPage>
