@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace MedicacaoDiariaApp.Models
 {
-    public class Medicamento
+    class ListaMedicamento
     {
         [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+
+        public int IdUsuario { get; set; }
+
         public int IdMedicamento { get; set; }
 
-        public string Nome { get; set; }
-
-        public string Indicacao { get; set; }
+        public int IdHorario { get; set; }
     }
 }

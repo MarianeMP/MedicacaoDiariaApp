@@ -14,7 +14,7 @@ namespace MedicacaoDiariaApp.Helpers
     public class SQLite
 
     {
-        /*
+      
         readonly SQLiteAsyncConnection _conn;
 
         public SQLite(string path)
@@ -27,37 +27,37 @@ namespace MedicacaoDiariaApp.Helpers
 
         }
 
-        public Task<int> Insert(Medicamento m)
+        public Task<int> CadastrarMedicamento(Medicamento med)
 
         {
 
-            return _conn.InsertAsync(m);
+            return _conn.InsertAsync(med);
 
         }
 
-        public Task<List<Medicamento>> Update(Medicamento m)
+        public Task<List<Medicamento>> EditarMedicamento(Medicamento med)
 
         {
 
-            string sql = "UPDATE Medicamento SET Nome=?, Concentracao=?, Indicacao=? WHERE Id=?";
+            string sql = "UPDATE Medicamento SET Nome=?, Indicacao=? WHERE IdMedicamento=?";
 
             return _conn.QueryAsync<Medicamento>(
 
-                sql, m.Nome, m.Concentracao, m.Indicaco, m.Id
+                sql, med.Nome, med.Indicacao, med.IdMedicamento
 
             );
 
         }
 
-        public Task<int> Delete(int id)
+        public Task<int> ExcluirMedicamento(int id)
 
         {
 
-            return _conn.Table<Medicamento>().DeleteAsync(i => i.Id == id);
+            return _conn.Table<Medicamento>().DeleteAsync(i => i.IdMedicamento == id);
 
         }
 
-        public Task<List<Medicamento>> GetAll()
+        public Task<List<Medicamento>> ListarMedicamento()
 
         {
 
@@ -65,17 +65,9 @@ namespace MedicacaoDiariaApp.Helpers
 
         }
 
-        public Task<List<Medicamento>> Search(string q)
 
-        {
 
-            string sql = "SELECT * Medicamento WHERE Nome LIKE %" + q + "%";
-
-            return _conn.QueryAsync<Medicamento>(sql);
-
-        }
-
-        */
+        
     }
 
 }
