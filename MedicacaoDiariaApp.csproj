@@ -64,22 +64,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="NovaPasta\Views\EditarHorario.xaml">
+	  <MauiXaml Update="Views\EditarHorario.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NovaPasta\Views\EditarMedicamento.xaml">
+	  <MauiXaml Update="Views\EditarMedicamento.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NovaPasta\Views\ListaMedicamento.xaml">
+	  <MauiXaml Update="Views\ListaMedicamento.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NovaPasta\Views\NovoHorario.xaml">
+	  <MauiXaml Update="Views\NovoHorario.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NovaPasta\Views\NovoMedicamento.xaml">
+	  <MauiXaml Update="Views\NovoMedicamento.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NovaPasta\Views\PaginaInicial.xaml">
+	  <MauiXaml Update="Views\PaginaInicial.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
