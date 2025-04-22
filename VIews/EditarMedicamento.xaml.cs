@@ -1,4 +1,4 @@
-namespace MedicacaoDiariaApp.VIews;
+namespace MedicacaoDiariaApp.Views;
 
 public partial class EditarMedicamento : ContentPage
 {
