@@ -3,10 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MedicacaoDiariaApp.VIews.NovoMedicamento"
              Title="NovoMedicamento">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <VerticalStackLayout Spacing="10" Padding="10">
+        <Label Text="Id:" />
+        <Entry x:Name="txt_id" />
+
+        <Label Text ="Nome:" />
+        <Entry x:Name="txt_nome" />
+
+        <Label Text="Indicação:" />
+        <Entry x:Name="txt_indicacao" />
+
     </VerticalStackLayout>
 </ContentPage>
