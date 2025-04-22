@@ -5,9 +5,9 @@
 
     <ScrollView>
         <VerticalStackLayout>
-            <Button Text="Lista dos Medicamentos Cadastrados"></Button>
-            <Button Text="Adicionar Medicamento"></Button>
-            <Button Text="Adicionar Horario"></Button>
+            <Label Text="Aplicativo Medicação Diária"></Label>
+            <Button Text="Entrar" Clicked="Button_Clicked"></Button>
+            <Button Text="Cadastrar Usuário"></Button>
         </VerticalStackLayout>
     </ScrollView>
 

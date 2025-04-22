@@ -1,4 +1,6 @@
-﻿namespace MedicacaoDiariaApp
+﻿using MedicacaoDiariaApp.Views;
+
+namespace MedicacaoDiariaApp
 {
     public partial class MainPage : ContentPage
     {
@@ -9,7 +11,10 @@
             InitializeComponent();
         }
 
-        
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PaginaInicial());
+        }
     }
 
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MedicacaoDiariaApp.Models
 {
-    class Usuario
+   public class Usuario
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
