@@ -5,9 +5,22 @@
 
     <ScrollView>
         <VerticalStackLayout>
-            <Label Text="Aplicativo Medicação Diária"></Label>
-            <Button Text="Entrar" Clicked="Button_Clicked"></Button>
-            <Button Text="Cadastrar Usuário"></Button>
+            <Label Text="Aplicativo Medicação Diária" 
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,20" />
+
+            <Button Text="Entrar" 
+                    Clicked="Button_Clicked" 
+                    Margin="0,10" />
+
+            <Button Text="Cadastrar Usuários" 
+                    Clicked="Button_CadastrarUsuario_Clicked" 
+                    Margin="0,10" />
+
+            <Button Text="Visualizar Usuários" 
+                    Clicked="Button_VisualizarUsuarios_Clicked" 
+                    Margin="0,10" />
         </VerticalStackLayout>
     </ScrollView>
 
