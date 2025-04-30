@@ -68,9 +68,9 @@ namespace MedicacaoDiariaApp.Helpers
 
         public Task<List<HorarioMedicamento>> EditarHorarioMedicamento(HorarioMedicamento horario)
         {
-            string sql = "UPDATE HorarioMedicamento SET Horario=?, Dosagem=? WHERE IdMedicamento=?";
+            string sql = "UPDATE HorarioMedicamento SET Horario=?, Dosagem=? WHERE IdMedicamento=? AND IdHorario=?";
             return _conn.QueryAsync<HorarioMedicamento>(
-                sql, horario.Horario, horario.Dosagem, horario.IdMedicamento);
+                sql, horario.Horario, horario.Dosagem, horario.IdMedicamento, horario.IdHorario);
         }
 
 

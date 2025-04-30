@@ -2,12 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MedicacaoDiariaApp.Views.NovoMedicamento"
-             Title="NovoMedicamento">
+             Title="Novo Medicamento"
+             NavigationPage.HasBackButton="True">
+
     <VerticalStackLayout Padding="10" Spacing="15">
         <Label Text="Nome do Medicamento:"/>
         <Entry x:Name="txt_nomeMed"></Entry>
         <Label Text="Indicação:"/>
         <Entry x:Name="txt_indicacao"></Entry>
-        <Button Text="Adicionar Medicamento" Clicked="Button_Clicked"></Button>
+        <Button Text="Adicionar Medicamento" Clicked="Button_AdicionarMedicamento" ImageSource="add.png"></Button>
     </VerticalStackLayout>
 </ContentPage>

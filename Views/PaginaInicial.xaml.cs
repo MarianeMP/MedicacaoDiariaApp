@@ -9,7 +9,7 @@ public partial class PaginaInicial : ContentPage
 
     private void Button_ListaMedicamentos(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new ListaMedicamento());
+        Navigation.PushAsync(new ListaMedicamentos());
 
     }
 
