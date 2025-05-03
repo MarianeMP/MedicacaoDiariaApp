@@ -3,8 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MedicacaoDiariaApp.Views.EditarMedicamento"
              
-             Title="EditarMedicamento">
-    <VerticalStackLayout>
-        <Label />
+             Title="Editar Medicamento">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+        
+    <VerticalStackLayout Spacing="10" Padding="10">
+        <Label Text="Nome do Medicamento:" />
+        <Entry x:Name="txt_nome" Text="{Binding Nome}" />
+
+        <Label Text="Indicação do Medicamento:" />
+        <Entry x:Name="txt_indicacao" Text="{Binding Indicacao}" />
+
     </VerticalStackLayout>
 </ContentPage>
