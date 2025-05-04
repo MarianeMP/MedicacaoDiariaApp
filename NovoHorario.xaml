@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedicacaoDiariaApp.NovoHorario"
+             Title="Horário de Medicamento">
+
+    <VerticalStackLayout Padding="10" Spacing="15">
+
+        
+        <Label Text="Escolha o Medicamento:"/>
+        <Picker x:Name="MedicamentoPicker"
+                ItemDisplayBinding="{Binding Nome}"
+                Title="Selecione um medicamento" />
+
+       
+        <Label Text="Dosagem:"/>
+        <Entry x:Name="DosagemEntry" 
+               Placeholder="Dosagem" 
+               Keyboard="Numeric" 
+               Text="{Binding Dosagem}" />
+
+        
+        <Label Text="Data:"/>
+        <DatePicker x:Name="DataPicker"
+                    Date="{Binding Horario, Mode=TwoWay}" />
+
+       
+        <Label Text="Hora:"/>
+        <TimePicker x:Name="HorarioTimePicker"
+                    Time="{Binding Horario.TimeOfDay, Mode=TwoWay}" />
+
+        
+        <Button Text="Salvar" 
+                Clicked="OnSalvarClicked" />
+    </VerticalStackLayout>
+
+</ContentPage>
