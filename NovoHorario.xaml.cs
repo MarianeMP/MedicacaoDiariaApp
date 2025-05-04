@@ -51,7 +51,7 @@ namespace MedicacaoDiariaApp
 
             var medicamentoSelecionado = (Medicamento)MedicamentoPicker.SelectedItem;
             _horarioMedicamento.IdMedicamento = medicamentoSelecionado.IdMedicamento;
-            _horarioMedicamento.Dosagem = double.Parse(DosagemEntry.Text);
+            _horarioMedicamento.Dosagem = DosagemEntry.Text;
 
             var dataSelecionada = DataPicker.Date;
             var horaSelecionada = HorarioTimePicker.Time;
