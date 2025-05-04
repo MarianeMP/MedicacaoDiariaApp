@@ -17,7 +17,7 @@
                 <Label Grid.Column="0" Text="Nome" FontAttributes="Bold" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Center"/>
                 <Label Grid.Column="1" Text="Indicação" FontAttributes="Bold" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Center"/>
                 <Label Grid.Column="2" Text="Horário" FontAttributes="Bold" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Center"/>
-                <Label Grid.Column="3" Text="Quantidade" FontAttributes="Bold" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Center"/>
+                <Label Grid.Column="3" Text="Dosagem" FontAttributes="Bold" TextColor="White" HorizontalOptions="Fill" VerticalOptions="Center"/>
             </Grid>
         </ListView.Header>
 
@@ -25,8 +25,10 @@
             <DataTemplate>
                 <ViewCell>
                     <ViewCell.ContextActions>
-                        <MenuItem Text="Excluir" IconImageSource="delete.png" Clicked="Exluir_Clicked"></MenuItem>
-                        <MenuItem Text="Editar" IconImageSource="edit.png" Clicked="Editar_Clicked"></MenuItem>
+                        <MenuItem  Text="Excluir Medicamento" IconImageSource="delete.png"  Clicked="ExluirMedicamento_Clicked"></MenuItem>
+                        <MenuItem Text="Excluir Horário" IconImageSource="delete.png" Clicked="ExluirHorario_Clicked"></MenuItem>
+                        <MenuItem Text="Editar Medicamento" IconImageSource="edit.png" Clicked="EditarMedicamento_Clicked"></MenuItem>
+                        <MenuItem Text="Editar Horário" IconImageSource="edit.png" Clicked="EditarHorario_Clicked"></MenuItem>
 
                     </ViewCell.ContextActions>
                     <Grid ColumnDefinitions="*,*,*,*" RowSpacing="10">

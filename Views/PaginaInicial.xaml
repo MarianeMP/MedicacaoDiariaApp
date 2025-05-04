@@ -2,10 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MedicacaoDiariaApp.Views.PaginaInicial"
-             Title="PaginaInicial">
-    <VerticalStackLayout>
-        <Button Text="Lista dos Medicamentos Cadastrados" Clicked="Button_ListaMedicamentos"></Button>
-        <Button Text="Adicionar Medicamento" Clicked="Button_NovoMedicamento"></Button>
-        <Button Text="Adicionar Horario" Clicked="Button_NovoHorario"></Button>
-    </VerticalStackLayout>
-</ContentPage>
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <Frame VerticalOptions="Center">
+            <VerticalStackLayout Padding="10" Spacing="15">
+                <Image Source="logo.png" MaximumWidthRequest="300"></Image>
+                <Button Text="Lista dos Medicamentos" Clicked="Button_ListaMedicamentos" ImageSource="list.png" WidthRequest="300" HeightRequest="75"></Button>
+                <Button Text="Adicionar Medicamento" Clicked="Button_NovoMedicamento" ImageSource="pill.png" WidthRequest="300" HeightRequest="75"></Button>
+                <Button Text="Adicionar Horario" Clicked="Button_NovoHorario" ImageSource="schedule.png" WidthRequest="300" HeightRequest="75"></Button>
+            </VerticalStackLayout>
+
+        </Frame>
+    </ScrollView>
+   </ContentPage>

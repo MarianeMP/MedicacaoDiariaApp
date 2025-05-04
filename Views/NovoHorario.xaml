@@ -14,19 +14,16 @@
 
         <Label Text="Dosagem:"/>
         <Entry x:Name="DosagemEntry" 
-               Placeholder="Dosagem" 
+               Placeholder="Exemplo: 1 comprimido" 
                Keyboard="Numeric" 
                Text="{Binding Dosagem}" />
 
 
-        <Label Text="Data:"/>
-        <DatePicker x:Name="DataPicker"
-                    Date="{Binding Horario, Mode=TwoWay}" />
-
-
-        <Label Text="Hora:"/>
+      
+        <Label Text="Horário:"/>
         <TimePicker x:Name="HorarioTimePicker"
-                    Time="{Binding Horario.TimeOfDay, Mode=TwoWay}" />
+                    Time="{Binding Horario.TimeOfDay, Mode=TwoWay}"
+                    Format="HH:mm"/>
 
 
         <Button Text="Salvar" 

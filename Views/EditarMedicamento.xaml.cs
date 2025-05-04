@@ -18,8 +18,8 @@ public partial class EditarMedicamento : ContentPage
 			Medicamento med = new Medicamento
 			{
 				IdMedicamento = medicamento_anexado.IdMedicamento,
-				Nome = txt_nome.Text,
-				Indicacao = txt_indicacao.Text,
+				Nome = medicamento_anexado.Nome,
+				Indicacao = medicamento_anexado.Indicacao,
 
 			};
 

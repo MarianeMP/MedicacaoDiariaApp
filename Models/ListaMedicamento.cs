@@ -1,11 +1,4 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MedicacaoDiariaApp.Models
+﻿namespace MedicacaoDiariaApp.Models
 {
    public class ListaMedicamento
     {
@@ -13,7 +6,7 @@ namespace MedicacaoDiariaApp.Models
 
         public string? NomeMedicamento { get; set; }
 
-        public string IndicacaoMedicamento { get; set; }
+        public string? IndicacaoMedicamento { get; set; }
 
         public int? IdHorario { get; set; }
 

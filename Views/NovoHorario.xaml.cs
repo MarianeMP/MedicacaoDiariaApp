@@ -19,10 +19,8 @@ public partial class NovoHorario : ContentPage
         InitializeComponent();
 
 
-        string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "medicacaodiaria.db3");
 
-
-        _bancoDeDados = new SQLiteBancoDeDados(dbPath);
+        _bancoDeDados = App.BancoDeDados;
 
 
         _horarioMedicamento = new HorarioMedicamento
@@ -53,14 +51,13 @@ public partial class NovoHorario : ContentPage
         _horarioMedicamento.IdMedicamento = medicamentoSelecionado.IdMedicamento;
         _horarioMedicamento.Dosagem = DosagemEntry.Text;
 
-        var dataSelecionada = DataPicker.Date;
         var horaSelecionada = HorarioTimePicker.Time;
-        _horarioMedicamento.Horario = dataSelecionada.Add(horaSelecionada);
+        _horarioMedicamento.Horario = DateTime.Today.Add(horaSelecionada); 
 
         await _bancoDeDados.CadastrarHorarioMedicamento(_horarioMedicamento);
 
         await DisplayAlert("Sucesso", "Horário de medicação salvo com sucesso!", "OK");
 
-        await Navigation.PopAsync();
+        await Navigation.PushAsync(new ListaMedicamentos());
     }
 }
