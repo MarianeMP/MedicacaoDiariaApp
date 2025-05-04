@@ -2,11 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MedicacaoDiariaApp.Views.NovoHorario"
-             Title="NovoHorario">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Novo Horário">
+
+    <StackLayout Padding="20" Spacing="15">
+        <!-- Dosagem Label -->
+        <Label Text="Dosagem (mg):" />
+
+        <!-- Campo para dosagem -->
+        <Entry x:Name="txt_dosagem" 
+               Keyboard="Numeric" 
+               Placeholder="Ex: 500"
+               VerticalOptions="CenterAndExpand"/>
+
+        <!-- Horário Label -->
+        <Label Text="Horário:" />
+
+        <!-- TimePicker para escolher horário -->
+        <TimePicker x:Name="timePicker_horario" />
+
+        <!-- Botão de Salvar -->
+        <Button Text="Salvar Horário" 
+                Clicked="Button_SalvarHorario" />
+    </StackLayout>
 </ContentPage>

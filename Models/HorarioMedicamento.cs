@@ -1,14 +1,9 @@
 ﻿using SQLite;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MedicacaoDiariaApp.Models
 {
-   public class HorarioMedicamento
+    public class HorarioMedicamento
     {
         [PrimaryKey, AutoIncrement]
         public int IdHorario { get; set; }
@@ -17,8 +12,8 @@ namespace MedicacaoDiariaApp.Models
 
         public DateTime Horario { get; set; }
 
-
-        [ForeignKey(nameof(Medicamento.IdMedicamento))]
+        // Campo de ligação com a tabela Medicamento
+        [Indexed]
         public int IdMedicamento { get; set; }
     }
 }

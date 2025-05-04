@@ -3,7 +3,7 @@ using MedicacaoDiariaApp.Models;
 using Microsoft.Maui.Controls;
 using System.IO;
 
-namespace MedicacaoDiariaApp.Views  // Certifique-se de que a namespace está correta
+namespace MedicacaoDiariaApp.Views  
 {
     public partial class NovoUsuario : ContentPage  // Atualizei o nome para 'NovoUsuario'
     {

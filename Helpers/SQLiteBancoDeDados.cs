@@ -1,5 +1,6 @@
 ﻿using MedicacaoDiariaApp.Models;
 using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,6 +13,8 @@ namespace MedicacaoDiariaApp.Helpers
         public SQLiteBancoDeDados(string path)
         {
             _conn = new SQLiteAsyncConnection(path);
+
+            // Habilita o uso de chaves estrangeiras no SQLite
             _conn.ExecuteAsync("PRAGMA foreign_keys = ON;").Wait();
 
             // Criação das tabelas
@@ -26,10 +29,10 @@ namespace MedicacaoDiariaApp.Helpers
             return _conn.InsertAsync(med);
         }
 
-        public Task<List<Medicamento>> EditarMedicamento(Medicamento med)
+        public Task<int> EditarMedicamento(Medicamento med)
         {
-            string sql = "UPDATE Medicamento SET Nome=?, Indicacao=? WHERE IdMedicamento=?";
-            return _conn.QueryAsync<Medicamento>(sql, med.Nome, med.Indicacao, med.IdMedicamento);
+            string sql = "UPDATE Medicamento SET Nome = ?, Indicacao = ? WHERE IdMedicamento = ?";
+            return _conn.ExecuteAsync(sql, med.Nome, med.Indicacao, med.IdMedicamento);
         }
 
         public Task<int> ExcluirMedicamento(int id)
@@ -45,13 +48,13 @@ namespace MedicacaoDiariaApp.Helpers
         // Métodos para HorarioMedicamento
         public Task<int> CadastrarHorarioMedicamento(HorarioMedicamento horario)
         {
-            return _conn.InsertAsync(horario);
+            return _conn.InsertAsync(horario);  // Insere o horário na tabela
         }
 
-        public Task<List<HorarioMedicamento>> EditarHorarioMedicamento(HorarioMedicamento horario)
+        public Task<int> EditarHorarioMedicamento(HorarioMedicamento horario)
         {
-            string sql = "UPDATE HorarioMedicamento SET Horario=?, Dosagem=? WHERE IdMedicamento=?";
-            return _conn.QueryAsync<HorarioMedicamento>(sql, horario.Horario, horario.Dosagem, horario.IdMedicamento);
+            string sql = "UPDATE HorarioMedicamento SET Horario = ?, Dosagem = ? WHERE IdHorario = ?";
+            return _conn.ExecuteAsync(sql, horario.Horario, horario.Dosagem, horario.IdHorario);
         }
 
         public Task<int> ExcluirHorarioMedicamento(int id)
@@ -66,15 +69,23 @@ namespace MedicacaoDiariaApp.Helpers
                 SELECT m.IdMedicamento AS IdMedicamento, 
                        m.Nome AS NomeMedicamento, 
                        m.Indicacao AS IndicacaoMedicamento, 
-                       h.IdHorario As IdHorario, 
+                       h.IdHorario AS IdHorario, 
                        h.Horario AS Horario, 
-                       h.Dosagem as Dosagem 
+                       h.Dosagem AS Dosagem 
                 FROM Medicamento m
                 INNER JOIN HorarioMedicamento h 
                     ON h.IdMedicamento = m.IdMedicamento
                 ORDER BY Horario";
 
             return _conn.QueryAsync<ListaMedicamento>(query);
+        }
+
+        // Listar Horários de um Medicamento específico (extra)
+        public Task<List<HorarioMedicamento>> ListarHorariosPorMedicamento(int idMedicamento)
+        {
+            return _conn.Table<HorarioMedicamento>()
+                        .Where(h => h.IdMedicamento == idMedicamento)
+                        .ToListAsync();
         }
 
         // Métodos para Usuario
@@ -91,6 +102,25 @@ namespace MedicacaoDiariaApp.Helpers
         public Task<int> ExcluirUsuario(int id)
         {
             return _conn.Table<Usuario>().DeleteAsync(i => i.Id == id);
+        }
+
+        // MÉTODO TEMPORÁRIO PARA DEBUG: Verificar medicamentos no console
+        public async Task VerificarMedicamentosNoConsole()
+        {
+            var lista = await _conn.Table<Medicamento>().ToListAsync();
+
+            if (lista.Count == 0)
+            {
+                Console.WriteLine("Nenhum medicamento cadastrado.");
+            }
+            else
+            {
+                Console.WriteLine("Medicamentos cadastrados:");
+                foreach (var med in lista)
+                {
+                    Console.WriteLine($"ID: {med.IdMedicamento} | Nome: {med.Nome} | Indicação: {med.Indicacao}");
+                }
+            }
         }
     }
 }
