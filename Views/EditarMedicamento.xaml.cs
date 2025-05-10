@@ -22,8 +22,8 @@ public partial class EditarMedicamento : ContentPage
 				Indicacao = medicamento_anexado.Indicacao,
 
 			};
-
-			await App.BancoDeDados.EditarMedicamento(med);
+          
+            await App.BancoDeDados.EditarMedicamento(med);
 			await DisplayAlert("Sucesso", "Registro Atualizado", "OK");
 			await Navigation.PopAsync();
 

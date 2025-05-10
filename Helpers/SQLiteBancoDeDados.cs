@@ -48,10 +48,10 @@ namespace MedicacaoDiariaApp.Helpers
             return _conn.InsertAsync(horario);
         }
 
-        public Task<List<HorarioMedicamento>> EditarHorarioMedicamento(HorarioMedicamento horario)
+        public Task<int> EditarHorarioMedicamento(HorarioMedicamento horario)
         {
-            string sql = "UPDATE HorarioMedicamento SET Horario=?, Dosagem=? WHERE IdMedicamento=? AND IdHorario=?";
-            return _conn.QueryAsync<HorarioMedicamento>(sql, horario.Horario, horario.Dosagem, horario.IdMedicamento, horario.IdHorario);
+            string sql = "UPDATE HorarioMedicamento SET Horario=?, Dosagem=?, IdMedicamento=? WHERE IdHorario=?";
+            return _conn.ExecuteAsync(sql, horario.Horario, horario.Dosagem, horario.IdMedicamento, horario.IdHorario);
         }
 
         public Task<int> ExcluirHorarioMedicamento(int id)

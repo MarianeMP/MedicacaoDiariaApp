@@ -45,7 +45,7 @@ public partial class ListaMedicamentos : ContentPage
 
             ListaMedicamento med = selecionado.BindingContext as ListaMedicamento;
 
-            bool confirm = await DisplayAlert("Tem certeza?", $"ATENÇÂO! Todos os horários do medicamento serão excluídos. " +
+            bool confirm = await DisplayAlert("Tem certeza?", $"ATENÇÃO! Todos os horários do medicamento serão excluídos. " +
                 $"Remover o medicamento {med.NomeMedicamento}?", "Sim", "Não");
 
             if (confirm)
@@ -54,7 +54,7 @@ public partial class ListaMedicamentos : ContentPage
                 lista.Remove(med);
 
                 await DisplayAlert("Mensagem", "O Medicamento foi excluído", "OK");
-                Navigation.PushAsync(new ListaMedicamentos());
+                await Navigation.PushAsync(new ListaMedicamentos());
 
 
 
@@ -70,7 +70,8 @@ public partial class ListaMedicamentos : ContentPage
 
     private async void EditarMedicamento_Clicked(object sender, EventArgs e)
     {
-        
+       
+
     }
     private async void ExluirHorario_Clicked(object sender, EventArgs e)
     {
@@ -79,6 +80,28 @@ public partial class ListaMedicamentos : ContentPage
 
     private async void EditarHorario_Clicked(object sender, EventArgs e)
     {
+        try
+        {
+            var menuItem = sender as MenuItem;
+            var itemSelecionado = menuItem?.CommandParameter as ListaMedicamento;
 
+            if (itemSelecionado != null)
+            {
+                var horario = new HorarioMedicamento
+                {
+                    IdHorario = itemSelecionado.IdHorario ?? 0,
+                    IdMedicamento = itemSelecionado.IdMedicamento ?? 0,
+                    Dosagem = itemSelecionado.Dosagem,
+                    Horario = itemSelecionado.Horario
+                };
+
+                await Navigation.PushAsync(new EditarHorario(horario));
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Erro", ex.Message, "OK");
+        }
     }
+
 }

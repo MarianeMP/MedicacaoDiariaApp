@@ -28,7 +28,10 @@
                         <MenuItem  Text="Excluir Medicamento" IconImageSource="delete.png"  Clicked="ExluirMedicamento_Clicked"></MenuItem>
                         <MenuItem Text="Excluir Horário" IconImageSource="delete.png" Clicked="ExluirHorario_Clicked"></MenuItem>
                         <MenuItem Text="Editar Medicamento" IconImageSource="edit.png" Clicked="EditarMedicamento_Clicked"></MenuItem>
-                        <MenuItem Text="Editar Horário" IconImageSource="edit.png" Clicked="EditarHorario_Clicked"></MenuItem>
+                        <MenuItem Text="Editar Horário" IconImageSource="edit.png" Clicked="EditarHorario_Clicked" CommandParameter="{Binding .}" />
+
+
+
 
                     </ViewCell.ContextActions>
                     <Grid ColumnDefinitions="*,*,*,*" RowSpacing="10">
